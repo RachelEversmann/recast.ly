@@ -6,10 +6,12 @@ var searchYouTube = (options, callback) => {
       q: options.query,
       part: 'snippet',
       key: options.key,
-      maxResults: options.max
+      maxResults: options.max,
+      videoEmbeddable: 'true',
+      type: 'video'
     },
     success: function(data) {
-      callback(data);
+      callback(data.items);
       console.log('SUCCESS <3');
     },
     error: function () {
