@@ -13,18 +13,22 @@ class App extends React.Component {
   }
 
   linkClicked(e) {
-    console.log(e);
     var ourID = e.dispatchMarker.split('$')[1];
     ourID = ourID.split('.')[0];
     this.setState({current: this.state.videos[ourID]});
   }
 
-  submitHandler(){
-    console.log(document.getElementsByClassName("form-control")[0].value);
+  submitHandler(e) {
+    var options = {
+      key: YOUTUBE_API_KEY,
+      query: e.target.value,
+      max: this.props.max
+    };
+    searchYouTube(options, this.searchCallBack);
   }
 
-  searchCallBack(data){
-    this.setState({videos: data.items});
+  searchCallBack(data) {
+    this.setState({videos: data.items, current: data.items[0]});
   }
 
   render() {
