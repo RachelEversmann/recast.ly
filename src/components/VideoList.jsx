@@ -1,9 +1,10 @@
 class VideoList extends React.Component {
 
-  render(){
-    let listEntry = this.props.videos.map( function(video){
+  render() {
+    var context = this;
+    let listEntry = this.props.videos.map( function(video,index) {
       // return <li><h5><em> <VideoListEntry video={video} /> </em> view goes here</h5></li>;
-      return <VideoListEntry video={video} key={video.id.videoId}/>;
+      return <VideoListEntry video={video} key={index} func ={context.props.func}/>;
     });
     return <ul className="video-list"> {listEntry} </ul>;
   }
