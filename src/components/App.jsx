@@ -5,7 +5,7 @@ class App extends React.Component {
       videos: this.props.videos,
       current: this.props.videos[0],
       submit: false
-    };
+    }
 
     this.linkClicked = this.linkClicked.bind(this);
   }
@@ -20,15 +20,15 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div> <Search /> </div>
+            <Search />
           </div>
         </nav>
         <div className="row">
           <div className="col-md-7">
-            <div> <VideoPlayer video={this.state.current} /> </div>
+            <VideoPlayer video={this.state.current} />
           </div>
           <div className="col-md-5">
-            <div> <VideoList videos={this.state.videos} func = {this.linkClicked}/> </div>
+            <VideoList videos={this.state.videos} func = {this.linkClicked}/>
           </div>
         </div>
       </div> );

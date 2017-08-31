@@ -1,14 +1,13 @@
-class VideoList extends React.Component {
+var VideoList = (props) => (
 
-  render() {
-    var context = this;
-    let listEntry = this.props.videos.map( function(video, index) {
-      // return <li><h5><em> <VideoListEntry video={video} /> </em> view goes here</h5></li>;
-      return <VideoListEntry video={video} key={index} func ={context.props.func}/>;
-    });
-    return <ul className="video-list"> {listEntry} </ul>;
-  }
-}
+  <ul className="video-list">{
+      props.videos.map( function(video, index) {
+        return <VideoListEntry video={video} key={index} func ={props.func}/>;
+      } )
+    }</ul>
+  );
+
+
 
 // PropTypes tell other developers what `props` a component expects
 // Warnings will be shown in the console when the defined rules are violated
