@@ -13,7 +13,7 @@ class App extends React.Component {
   linkClicked(e) {
     var ourID = e.dispatchMarker.split('$')[1];
     ourID = ourID.split('.')[0];
-    this.setState({current : this.state.videos[ourID]});
+    this.setState({current: this.state.videos[ourID]});
   }
   render() {
     return (
@@ -28,7 +28,7 @@ class App extends React.Component {
             <div> <VideoPlayer video={this.state.current} /> </div>
           </div>
           <div className="col-md-5">
-            <div> <VideoList videos={this.state.videos}  func = {this.linkClicked}/> </div>
+            <div> <VideoList videos={this.state.videos} func = {this.linkClicked}/> </div>
           </div>
         </div>
       </div> );
