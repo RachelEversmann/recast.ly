@@ -8,19 +8,31 @@ class App extends React.Component {
     };
 
     this.linkClicked = this.linkClicked.bind(this);
+    this.searchCallBack = this.searchCallBack.bind(this);
+    this.submitHandler = this.submitHandler.bind(this);
   }
 
   linkClicked(e) {
+    console.log(e);
     var ourID = e.dispatchMarker.split('$')[1];
     ourID = ourID.split('.')[0];
     this.setState({current: this.state.videos[ourID]});
   }
+
+  submitHandler(){
+    console.log(document.getElementsByClassName("form-control")[0].value);
+  }
+
+  searchCallBack(data){
+    this.setState({videos: data.items});
+  }
+
   render() {
     return (
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <Search />
+            <Search func={this.submitHandler}/>
           </div>
         </nav>
         <div className="row">
