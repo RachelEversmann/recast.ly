@@ -5,7 +5,7 @@ class App extends React.Component {
       videos: this.props.videos,
       current: this.props.videos[0],
       submit: false
-    }
+    };
 
     this.linkClicked = this.linkClicked.bind(this);
   }
